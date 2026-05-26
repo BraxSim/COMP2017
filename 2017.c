@@ -12,7 +12,7 @@ typedef void (*PrintFn)(PrintJob *);
 struct PrintJob {
     int job_id;
 
-    char username[MAX_USER_lEN];
+    char username[MAX_USER_LEN];
     char document[MAX_DOC_LEN];
 
     int pages;
@@ -180,18 +180,5 @@ int load_print_jobs(const char *filename, PrintJob **head)
 
 PrintJob *largest_print_job(PrintJob *head)
 {
-    if (head == NULL){
-        return NULL;
-    }
-    PrintJob *best = head;
-    PrintJob *curr = head->next;
-
-    while(curr != NULL){
-        if(curr->pages > best->pages){
-            best = curr;
-        }
-        curr = curr->next;
-    }
-    
     return best;
 }
